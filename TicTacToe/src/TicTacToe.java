@@ -27,7 +27,7 @@ public class TicTacToe {
                 break;
             }
             if (getInput('X') || getInput('O')) {
-               break;
+                break;
             }
         }
 
@@ -40,6 +40,12 @@ public class TicTacToe {
         System.out.println();
         System.out.println("Current Game Board: ");
         printGameBoard();
+
+        if (count == 9) {
+            System.out.println(); 
+            System.out.println("It is a tie.");
+            return true;
+        }
 
         switch(player) {
             case 'X':
@@ -238,11 +244,13 @@ public class TicTacToe {
     public static boolean checkHelper(int counterX, int counterY) {
         //System.out.println(counterX);
         //System.out.println(counterY);
-        printGameBoard();
+        //printGameBoard();
         if (counterX == 3) {
+            printGameBoard();
             System.out.println("Player 1 wins!");
             return true;
         } else if (counterY == 3) {
+            printGameBoard();
             System.out.println("Player 2 wins!");
             return true;
         }
